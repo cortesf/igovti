@@ -31,7 +31,7 @@
     <body>
         
         <form action="radio.php" method="POST" id='formulario' class='form'>
-	      	<B>Calcule aqui o seu Índice de Governança de TI.<B>
+	        <B>Calcule aqui o seu Índice de Governança de TI.<B>
 	        <p>Segue abaixo 61 perguntas sobre aspectos da Governança de TI nas organizações<p>
 
 	        <B>A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais.</B><br>
@@ -409,7 +409,7 @@
             <input class="button" type=submit value="Calcule seu Índice de Governança de TI !">
     
             
-    	</form>
+    </form>
 
        
     </body>
