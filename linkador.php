@@ -1,11 +1,11 @@
 <?php
 $hostname = "localhost";
-$user="root";
-$password="antedeguemon";
+$user="igovti";
+$password="";
 $database="igovti";
 $conexao=mysqli_connect($hostname,$user,$password,$database);
 if (!$conexao) {
-    die('Erro na conexão' . mysql_error());
+    die('Erro na conexão' . mysqli_error());
 }
 
 ?>
