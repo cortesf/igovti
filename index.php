@@ -11,7 +11,7 @@
              :root{background-color: #E6E5E5;}
              b{ color:#373636;
                 font-family: 'Lato';
-                font-size: 1.1em;
+                font-size: 1.0em;
                 font-weight: 300;
                 font-style: normal;
                 font-stretch: normal;
@@ -31,35 +31,35 @@
     <body>
         
         <form action="radio.php" method="POST" id='formulario' class='form'>
-	        <B>Calcule aqui o seu Índice de Governança de TI.<B>
-	        <p>Segue abaixo 61 perguntas sobre aspectos da Governança de TI nas organizações<p>
+	        <B>Calcule aqui o seu Índice de Governança de TI.<B>    
+	        <p>Segue abaixo 61 perguntas sobre aspectos da Governança de TI nas organizações que após respondidas permitirão o cáculo do seu iGOVTIAjustado<p>
 
-	        <B>A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais.</B><br>
+	        <B>11_c - A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais.</B><br>
 	        <input type=radio name=Pergunta1 value=0.0 > Não se Aplica/Não Adota 
 	        <input type=radio name=Pergunta1 value=0.2> Iniciou Plano 
 	        <input type=radio name=Pergunta1 value=0.5> Adota Parcialmente 
 	        <input type=radio name=Pergunta1 value=1> Adota Integralmente
             <br><br>
-            <B>A organização dispõe de um código de ética, formalmente instituído, bem como divulga e monitora o seu cumprimento.</B><br>
+            <B>11_d - A organização dispõe de um código de ética, formalmente instituído, bem como divulga e monitora o seu cumprimento.</B><br>
             <input type=radio name=Pergunta2 value=0.0> Não se Aplica/Não Adota 
             <input type=radio name=Pergunta2 value=0.2> Iniciou Plano 
             <input type=radio name=Pergunta2 value=0.5> Adota Parcialmente 
             <input type=radio name=Pergunta2 value=1> Adota Integralmente
             <br><br>
 
-            <B>A organização dispõe de uma política corporativa de gestão de riscos formalmente instituída, como norma de cumprimento obrigatório.</B><br>
+            <B>11_e - A organização dispõe de uma política corporativa de gestão de riscos formalmente instituída, como norma de cumprimento obrigatório.</B><br>
             <input type=radio name=Pergunta3 value=0.0> Não se Aplica/Não Adota 
             <input type=radio name=Pergunta3 value=0.2> Iniciou Plano 
             <input type=radio name=Pergunta3 value=0.5> Adota Parcialmente 
             <input type=radio name=Pergunta3 value=1> Adota Integralmente
             <br><br>
-            <B>A organização define e comunica formalmente papéis e responsabilidades mais relevantes para a governança e gestão de TI.</B><br>
+            <B>12_a - A organização define e comunica formalmente papéis e responsabilidades mais relevantes para a governança e gestão de TI.</B><br>
             <input type=radio name=Pergunta4 value=0.0> Não se Aplica/Não Adota 
             <input type=radio name=Pergunta4 value=0.2> Iniciou Plano 
             <input type=radio name=Pergunta4 value=0.5> Adota Parcialmente 
             <input type=radio name=Pergunta4 value=1> Adota Integralmente
             <br><br>
-            <B>O comitê de TI realiza as atividades previstas em seu ato constitutivo.</B><br>
+            <B>12_c - O comitê de TI realiza as atividades previstas em seu ato constitutivo.</B><br>
             <input type=radio name=Pergunta5 value=0.0> Não se Aplica/Não Adota 
             <input type=radio name=Pergunta5 value=0.2> Iniciou Plano 
             <input type=radio name=Pergunta5 value=0.5> Adota Parcialmente 
