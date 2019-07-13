@@ -407,7 +407,7 @@
             <input type=radio name=Pergunta61 value=0.5> Adota Parcialmente 
             <input type=radio name=Pergunta61 value=1> Adota Integralmente
             <br><br>
-            <button type=submit value="Calcule seu Índice de Governança de TI !">
+            <input button type=submit value="Calcule seu Índice de Governança de TI !">
     
             
     </form>
