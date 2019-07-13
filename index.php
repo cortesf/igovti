@@ -41,7 +41,7 @@
 	        <B>Calcule aqui o seu Índice de Governança de TI.<B>
 	        <p>Segue abaixo 61 perguntas sobre aspectos da Governança de TI nas organizações<p>
 
-	    <B>11-C; A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais.</B><br>
+	    <B>11_c - A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais.</B><br>
 	    <input type=radio name=Pergunta1 value=0.0 > Não se Aplica/Não Adota 
 	    <input type=radio name=Pergunta1 value=0.2> Iniciou Plano 
 	    <input type=radio name=Pergunta1 value=0.5> Adota Parcialmente 
