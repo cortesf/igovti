@@ -1,11 +1,12 @@
 <?php
-$hostname = "localhost";
+$hostname = "localhost"; /* inserir ip do servidor */
 $user="root";
-$password="antedeguemon";
-$database="igovti";
-$conexao=mysqli_connect($hostname,$user,$password,$database);
+$password="";
+$database="igov_ti_ajustado";
+$conexao = new mysqli($hostname,$user,$password,$database);
+/*$conexao=mysqli_connect($hostname,$user,$password,$database);*/
 if (!$conexao) {
-    die('Erro na conexão' . mysql_error());
+    die('Erro na conexão' . mysqli_error());
 }
 
 ?>
