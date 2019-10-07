@@ -14,12 +14,29 @@
 
 <?php
 $config = "./config.php";
-if (!file_exists($config)) {
+if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+  $filename = fopen($config, 'w');
+
+  $data = "<?php
+    \\\ Variables to connection
+    \$hostname = \"{$_POST['hostname']}\";
+    \$username = \"{$_POST['username']}\";
+    \$password = \"{$_POST['password']}\";
+    \$database = \"{$_POST['database']}\";
+    \\\ Conection
+    \$conection = mysqli_connect(\$hostname, \$username, \$password, \$database);
+?>
+";
+
+  fwrite($filename, $data);
+  fclose($filename);
+
+} else if (!file_exists($config)) {
 ?>
 
   <h1>Dados para Conexão</h1>
 
-  <form method="POST" id="formconfig"> 
+  <form action="" method="POST" id="formconfig"> 
     <label>Hostname:
       <input type="text" name="hostname" autofocus>
     </label>
@@ -27,26 +44,15 @@ if (!file_exists($config)) {
       <input type="text" name="username">
     </label>
     <label>Password:
-      <input type="text" name="password">
+      <input type="password" name="password">
     </label>
     <label>Database:
-      <input type="password" name="database">
+      <input type="text" name="database">
     </label>
     <input type="submit" name="" value="Enviar">
   </form>
 
 <?php
-} else {
-    $hostname = $_POST['hostname'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $database = $_POST['database'];
-    $filename = fopen($config, "w");
-
-    $conection = mysqli_connect($hostname, $username, $password, $database);    
-
-    fwrite($filename, $conection);
-    fclose($filename);
 }
 ?>
 
