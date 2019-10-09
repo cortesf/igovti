@@ -6,7 +6,7 @@
   <style>
     /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
     @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
-    @import url("http://netdna.bootstrapcdn.com/font-awesome/<p>4.<p>1.0/css/font-awesome.css");
+    @import url("http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/<p>1.0.7/prefixfree.min.js"></script>
   </style>
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -63,38 +63,31 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     <input id="tab6" type="radio" name="tabs">
     <label for="tab6" class="tabs">Resultados</label>
       
-      
-      <div id="content1">
-          
-          <B>Calcule aqui o seu Índice de Governança de TI.<B>
-                
-            <B>Insira o nome da Instituição onde trabalha</B><br>
-	        <input type="text" name=Instituicao autofocus><br> 
-                
-            <br><B>Insira a sigla da sua Instituição</B><br>
-	        <input type="text" name=Sigla  ><br> 
-            <B>Insira o estado em que sua Instituição é localizada</B><br>
-	        <input type="text" name=Estado autofocus><br> 
-                
-            <br><B>Insira município em que sua Instituição é localizada</B><br>
-	        <input type="text" name=Município  ><br>
-              
-              <?php 
-        include_once("config.php");
-        $query = mysqli_query("SELECT * FROM pergunta", $conexao);
-        foreach ($pergunta['id']) {
-        
-                echo $query($pergunta['codigo'],$pergunta['pergunta']);?>
-                <input type=radio name=perguntas[] value=0.0 > Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-      
-    
-       <?php }?>
-        
-                
+    <div id="content1">        
+<?php 
+  include_once "config.php";
+
+  $query = "SELECT * FROM pergunta";
+  $result = mysqli_query($connection, $query);
+
+  while ($row = mysqli_fetch_assoc($result)) {
+    printf ("%s) %s<br />", $row['codigo'], $row['pergunta']);
+?>
+    <label>
+      <input type=radio name=perguntas[] value=0.0 > Não se Aplica/Não Adota 
+    </label>
+    <label>
+      <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
+    </label>
+    <label>
+      <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
+    </label>
+    <label>
+      <input type=radio name=perguntas[] value=1> Adota Integralmente
+    </label>
+<?php
+  }
+?>
       </div>
       <div id="content2">
         <B>2.1-C; O processo de planejamento estratégico institucional prevê a participação da área de TI</B><br>
