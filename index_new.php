@@ -11,12 +11,10 @@
   </style>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-
 <?php
 $config = "./config.php";
 if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   $filename = fopen($config, 'w');
-
   $data = "<?php
     \\\ Variables to connection
     \$hostname = \"{$_POST['hostname']}\";
@@ -27,15 +25,11 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     \$conection = mysqli_connect(\$hostname, \$username, \$password, \$database);
 ?>
 ";
-
   fwrite($filename, $data);
   fclose($filename);
-
 } else if (!file_exists($config)) {
 ?>
-
   <h1>Dados para Conexão</h1>
-
   <form action="" method="POST" id="formconfig"> 
     <label>Hostname:
       <input type="text" name="hostname" autofocus>
@@ -51,11 +45,9 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     </label>
     <input type="submit" name="" value="Enviar">
   </form>
-
 <?php
 }
 ?>
-
 <body>
   <form action="radio.php" method="POST" id="formulario" class="form"> 
     <input id="tab1" type="radio" name="tabs" checked>
@@ -70,104 +62,40 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     <label for="tab5" class="tabs">Processos</label>
     <input id="tab6" type="radio" name="tabs">
     <label for="tab6" class="tabs">Resultados</label>
-
-
-    
+      
+      
       <div id="content1">
-        <br><B>1.1-C; A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais.</B><br>
+          
+          <B>Calcule aqui o seu Índice de Governança de TI.<B>
+                
+            <B>Insira o nome da Instituição onde trabalha</B><br>
+	        <input type="text" name=Instituicao autofocus><br> 
+                
+            <br><B>Insira a sigla da sua Instituição</B><br>
+	        <input type="text" name=Sigla  ><br> 
+            <B>Insira o estado em que sua Instituição é localizada</B><br>
+	        <input type="text" name=Estado autofocus><br> 
+                
+            <br><B>Insira município em que sua Instituição é localizada</B><br>
+	        <input type="text" name=Município  ><br>
+              
+              <?php 
+        include_once("config.php");
+        $query = mysqli_query("SELECT * FROM pergunta", $conexao);
+        foreach ($pergunta['id']) {
+        
+                echo $query($pergunta['codigo'],$pergunta['pergunta']);?>
                 <input type=radio name=perguntas[] value=0.0 > Não se Aplica/Não Adota 
                 <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
                 <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
-                <B>1.1-D; A organização dispõe de um código de ética, formalmente instituído, bem como divulga e monitora o seu cumprimento.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-
-                <B>1.1-E; A organização dispõe de uma política corporativa de gestão de riscos formalmente instituída, como norma de cumprimento obrigatório.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.2-A; A organização define e comunica formalmente papéis e responsabilidades mais relevantes para a governança e gestão de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.2-C; O comitê de TI realiza as atividades previstas em seu ato constitutivo.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.3-A; A organização define formalmente diretrizes para o planejamento de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.3-B; A organização define formalmente diretrizes para gestão do portfólio de projetos e serviços de TI, inclusive para definição de critérios de priorização e de alocação orçamentária.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.3-D; A organização define formalmente diretrizes para avaliação do desempenho dos serviços de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.4-B; A organização define e comunica formalmente papéis e responsabilidades pela gestão de riscos de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.5-B; A organização define formalmente diretrizes para garantir o desenvolvimento de competências e a retenção de pessoal técnico de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.5-C; A organização define formalmente diretrizes para avaliação e incentivo ao desempenho de gestores de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.5-E; A organização define formalmente diretrizes para escolha dos líderes da área de TI, ocupantes dos cargos de chefia e de assessoramento.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-
-                <B>1.7-A; A organização define formalmente diretrizes para avaliação da governança e da gestão de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.7-C; A organização realiza avaliação periódica de sistemas de informação.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
-                <B>1.7-E; A organização realiza avaliação periódica de contratos de TI.</B><br>
-                <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
-                <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
-                <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
-                <input type=radio name=perguntas[] value=1> Adota Integralmente
-                <br><br>
+      
+    
+       <?php }?>
+        
+                
       </div>
-
       <div id="content2">
         <B>2.1-C; O processo de planejamento estratégico institucional prevê a participação da área de TI</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
@@ -211,7 +139,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
-
                 <B>2.2-F; O plano de TI vigente contempla objetivos, indicadores e metas para a TI, com os objetivos explicitamente alinhados aos objetivos de negócio constantes do plano estratégico institucional.</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
                 <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
@@ -237,7 +164,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
       </div>
-
       <div id="content3">
         <B>3.1-A; A organização identifica e mapeia os principais processos de negócio.</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
@@ -275,7 +201,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
-
                 <B>3.2-D; Os editais, seus respectivos anexos e os resultados das licitações de TI (inteiro teor) são divulgados na internet, sendo facilmente acessados.</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
                 <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
@@ -295,7 +220,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
       </div>
-
       <div id="content4">
         <B>4.1-B; A organização define critérios para avaliação e atendimento dos pedidos de capacitação.</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
@@ -339,7 +263,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
-
                 <B>4.3-B1; O quantitativo considerado de remuneração ideal foi estimado com base em estudo técnico de avaliação quantitativa e qualitativa do quadro de pessoal da área de TI.</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
                 <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
@@ -347,7 +270,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
       </div>
-
         <div id="content5">
         <B>5.1-M; A organização executa processos de gerenciamento de problemas.</B><br>
             <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
@@ -403,7 +325,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
             <input type=radio name=perguntas[] value=1> Adota Integralmente
             <br><br>
-
             <B>5.7-E; A organização realiza análise dos riscos que possam comprometer o sucesso do processo de contratação e dos resultados que atendam às necessidades de negócio.</B><br>
             <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
             <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
@@ -434,7 +355,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
             <input type=radio name=perguntas[] value=1> Adota Integralmente
       </div>
-
         <div id="content6">
             <B>6.2-A; A organização possui projetos de TI com mais de dois anos de início e que estão em andamento.</B><br>
                 <input type=radio name=perguntas[] value=0.0> Não se Aplica/Não Adota 
@@ -460,13 +380,11 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
                 <input type=radio name=perguntas[] value=1> Adota Integralmente
                 <br><br>
-
-
                 <button type="submit" name="" value="" class="botao">Calcule seu Índice de Governança de TI !</button>
              
         </div>
-
   </form>
   
 </body>
 </html>
+
