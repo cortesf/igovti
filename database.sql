@@ -8,12 +8,20 @@ CREATE TABLE `origem` (
   PRIMARY KEY (id)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
+CREATE TABLE `area` (
+  `id` INT NOT NULL AUTO_INCREMENT ,
+  `nome` LONGTEXT NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=innodb DEFAULT CHARSET=utf8;
+COMMIT;
 CREATE TABLE `pergunta` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `codigo` LONGTEXT NOT NULL,
   `area` LONGTEXT NOT NULL,
   `pergunta` LONGTEXT NOT NULL, 
-  PRIMARY KEY (id)
+  `id_area` INT,
+   FOREIGN KEY (id_area) REFERENCES area(id), 
+   PRIMARY KEY (id)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
 CREATE TABLE `resposta` (
@@ -25,6 +33,7 @@ CREATE TABLE `resposta` (
   
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
+
 
 
 INSERT INTO pergunta(codigo, area, pergunta) values ('1.1-C','Liderança','A organização realiza avaliações sobre a definição e compreensão dos papéis e responsabilidades organizacionais');
@@ -60,8 +69,7 @@ INSERT INTO pergunta(codigo, area, pergunta) values ('3.1-D','Informações','A 
 INSERT INTO pergunta(codigo, area, pergunta) values ('3.2-A','Informações','Os planos de TI vigentes são divulgados na internet, sendo facilmente acessados');
 INSERT INTO pergunta(codigo, area, pergunta) values ('3.2-C','Informações','As informações sobre o acompanhamento das ações e dos projetos de TI são divulgadas na internet, sendo facilmente acessadas');
 INSERT INTO pergunta(codigo, area, pergunta) values ('3.2-D','Informações','Os editais, seus respectivos anexos e os resultados das licitações de TI (inteiro teor) são divulgados na internet, sendo facilmente acessados');
-INSERT INTO pergunta(codigo, area, pergunta) values ('3.2-E','Informações','
-                <B>3.2-E; Os estudos técnicos preliminares (inteiro teor) são divulgados na internet, juntamente com os editais de licitação de TI, sendo facilmente acessados');
+INSERT INTO pergunta(codigo, area, pergunta) values ('3.2-E','Informações','3.2-E; Os estudos técnicos preliminares (inteiro teor) são divulgados na internet, juntamente com os editais de licitação de TI, sendo facilmente acessados');
 INSERT INTO pergunta(codigo, area, pergunta) values ('3.2-G','Informações','A execução orçamentária de TI, ao longo do exercício, é divulgada na internet, sendo facilmente acessada');
 INSERT INTO pergunta(codigo, area, pergunta) values ('4.1-B','Pessoas','A organização define critérios para avaliação e atendimento dos pedidos de capacitação');
 INSERT INTO pergunta(codigo, area, pergunta) values ('4.1-C','Pessoas','A organização elabora, periodicamente, plano de capacitação para suprir as necessidades de desenvolvimento de competências de TI');
@@ -84,7 +92,6 @@ INSERT INTO pergunta(codigo, area, pergunta) values ('5.7-E','Processos','A orga
 INSERT INTO pergunta(codigo, area, pergunta) values ('5.7-I','Processos','A organização diferencia e define formalmente os papéis de gestor e fiscal do contrato');
 INSERT INTO pergunta(codigo, area, pergunta) values ('5.8-D','Processos','O processo de planejamento das contratações de TI é periodicamente revisado e melhorado com base nas mensurações obtidas');
 INSERT INTO pergunta(codigo, area, pergunta) values ('5.9-B','Processos','A organização executa processo de gestão de contratos de TI');
-
 INSERT INTO pergunta(codigo, area, pergunta) values ('6.2-A','Resultados','A organização possui projetos de TI com mais de dois anos de início e que estão em andamento');
 INSERT INTO pergunta(codigo, area, pergunta) values ('6.4-E','Resultados','Os serviços acessíveis via internet implementam as diretrizes e as especificações dos Padrões de Interoperabilidade de Governo Eletrônico – ePING, previsto no Programa de Governo Eletrônico Brasileiro');
 INSERT INTO pergunta(codigo, area, pergunta) values ('6.4-C','Resultados','Há catálogo publicado com informações claras e precisas de cada um dos serviços acessíveis via internet');
@@ -93,6 +100,4 @@ INSERT INTO pergunta(codigo, area, pergunta) values ('6.4-G','Resultados','Os re
 
 
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
