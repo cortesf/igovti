@@ -73,22 +73,24 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     $arr2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     echo '<div id="content'.$areas['id'].'">';
+    $i = 1;
     foreach ($arr2 as $perguntas) {
       echo $perguntas['codigo'].') '.$perguntas['pergunta'].'<br />';
 ?>
       <label>
-        <input type=radio name=perguntas[] value=0.0 > Não se Aplica/Não Adota 
+        <input type=radio name=perguntas[<?php echo $i ?>][] value=0.0 > Não se Aplica/Não Adota 
       </label>
       <label>
-        <input type=radio name=perguntas[] value=0.2> Iniciou Plano 
+        <input type=radio name=perguntas[<?php echo $i ?>][] value=0.2> Iniciou Plano 
       </label>
       <label>
-        <input type=radio name=perguntas[] value=0.5> Adota Parcialmente 
+        <input type=radio name=perguntas[<?php echo $i ?>][] value=0.5> Adota Parcialmente 
       </label>
       <label>
-        <input type=radio name=perguntas[] value=1> Adota Integralmente
+        <input type=radio name=perguntas[<?php echo $i ?>][] value=1> Adota Integralmente
       </label>
 <?php
+      $i++;
     }
 ?>
     </div>
