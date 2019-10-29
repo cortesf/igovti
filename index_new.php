@@ -52,11 +52,9 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   <form action="proccess.php" method="POST" id="formulario" class="form"> 
 <?php 
   include_once "config.php";
-
   $query = "SELECT id,nome FROM area";
   $result = mysqli_query($connection, $query);
   $arr = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
   foreach ($arr as $areas) {
     //printf ("(%s) %s<br />", $areas['id'], $areas['nome']);
     if ($areas['id'] == 1)
@@ -66,31 +64,35 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<label for="tab'.$areas['id'].'" class="tabs">'.$areas['nome'].'</label>';
   }
   mysqli_free_result($result);
-
+ $i = 1;
   foreach ($arr as $areas) {
     $query = 'SELECT pergunta.id,pergunta.codigo,area.nome,pergunta FROM pergunta INNER JOIN area WHERE pergunta.id_area=area.id AND pergunta.id_area='.$areas['id'];
     $result = mysqli_query($connection, $query);
     $arr2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
     echo '<div id="content'.$areas['id'].'">';
-    $i = 1;
+    
     foreach ($arr2 as $perguntas) {
       echo $perguntas['codigo'].') '.$perguntas['pergunta'].'<br />';
 ?>
       <label>
-        <input type=radio name=perguntas[<?php echo $i ?>][] value=0.0 > Não se Aplica/Não Adota 
+        <input type=radio name=Pergunta<?php echo $i?> value=0.0 > Não se Aplica/Não Adota 
       </label>
       <label>
-        <input type=radio name=perguntas[<?php echo $i ?>][] value=0.2> Iniciou Plano 
+        <input type=radio name=Pergunta<?php echo $i?> value=0.2> Iniciou Plano 
       </label>
       <label>
-        <input type=radio name=perguntas[<?php echo $i ?>][] value=0.5> Adota Parcialmente 
+        <input type=radio name=Pergunta<?php echo $i?> value=0.5> Adota Parcialmente 
       </label>
       <label>
-        <input type=radio name=perguntas[<?php echo $i ?>][] value=1> Adota Integralmente
+        <input type=radio name=Pergunta<?php echo $i?> value=1> Adota Integralmente
       </label>
-<?php
-      $i++;
+      
+      
+<?php  
+    $resposta = $_POST['Pergunta'.$i];
+    $i++;
+    $query = "INSERT into resposta(resposta) values '$resposta'" ;
+    $result = mysqli_query($connection, $query); 
     }
 ?>
     </div>
@@ -98,8 +100,9 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   }
   mysqli_free_result($result);
 ?>
-      <button type="submit" name="" value="" class="botao">Calcule seu Índice de Governança de TI!</button>
+      
     </div>
+    <div id = 'content6'><button type="submit" name="" value="" class="botao">Calcule seu Índice de Governança de TI!</button></div>
   </form>
 </body>
 </html>
