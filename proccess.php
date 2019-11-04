@@ -16,71 +16,71 @@ $estado = S_POST['estado'];
 $municipio = S_POST['municipio'];
 
 $igovti = (1.794 +
- (1.716 * $_POST['pergunta'][4]) +
- (2.515 * $_POST['pergunta'][38]) +
- (1.272 * $_POST['pergunta'][8]) +
- (1.432 * $_POST['pergunta'][49]) +
- (2.067 * $_POST['pergunta'][41]) +
- (2.005 * $_POST['pergunta'][55]) +
- (3.727 * $_POST['pergunta'][27]) +
- (1.426 * $_POST['pergunta'][5]) +
- (0.875 * $_POST['pergunta'][52]) +
- (0.953 * $_POST['pergunta'][22]) +
- (2.445 * $_POST['pergunta'][30]) +
- (2.249 * $_POST['pergunta'][9]) +
- (0.889 * $_POST['pergunta'][60]) +
- (0.936 * $_POST['pergunta'][24]) +
- (1.247 * $_POST['pergunta'][10]) +
- (1.206 * $_POST['pergunta'][56]) +
- (1.652 * $_POST['pergunta'][17]) +
- (3.084 * $_POST['pergunta'][40]) +
- (2.742 * $_POST['pergunta'][28])+
- (1.547 * $_POST['pergunta'][13]) +
- (1.362 * $_POST['pergunta'][37]) +
- (2.588 * $_POST['pergunta'][16]) +
- (1.709 * $_POST['pergunta'][33]) +
- (1.929 * $_POST['pergunta'][45]) +
- (1.356 * $_POST['pergunta'][32]) +
- (1.556 * $_POST['pergunta'][6]) +
- (2.050 * $_POST['pergunta'][36]) +
- (1.826 * $_POST['pergunta'][14]) +
- (0.981 * $_POST['pergunta'][3]) +
- (1.386 * $_POST['pergunta'][26]) +
- (1.154 * $_POST['pergunta'][53]) +
- (1.372 * $_POST['pergunta'][59]) +
- (1.470 * $_POST['pergunta'][23]) +
- (0.622 * $_POST['pergunta'][58]) +
- (0.886 * $_POST['pergunta'][34]) +
- (0.796 * $_POST['pergunta'][1]) +
- (1.183 * $_POST['pergunta'][25]) +
- (2.700 * $_POST['pergunta'][46]) +
- (1.799 * $_POST['pergunta'][42]) +
- (1.176 * $_POST['pergunta'][43]) +
- (1.119 * $_POST['pergunta'][20]) +
- (1.610 * $_POST['pergunta'][29]) +
- (1.412 * $_POST['pergunta'][39]) +
- (0.775 * $_POST['pergunta'][18]) +
- (0.606 * $_POST['pergunta'][47]) +
- (1.004 * $_POST['pergunta'][2]) +
- (1.210 * $_POST['pergunta'][12]) +
- (0.673 * $_POST['pergunta'][35]) +
- (0.986 * $_POST['pergunta'][31]) +
- (1.242 * $_POST['pergunta'][7])  +
- (1.000 * $_POST['pergunta'][57]) +
- (0.978 * $_POST['pergunta'][44]) +
- (0.746 * $_POST['pergunta'][54]) +
- (1.443 * $_POST['pergunta'][61]) +
- (0.933 * $_POST['pergunta'][48]) +
- (0.952 * $_POST['pergunta'][15]) +
- (1.041 * $_POST['pergunta'][21]) +
- (1.195 * $_POST['pergunta'][50]) +
- (0.931 * $_POST['pergunta'][11]) +
- (0.766 * $_POST['pergunta'][51]) +
- (1.541 * $_POST['pergunta'][19])
+ (1.716 * $_POST['pergunta']['1.2-A']) +
+ (2.515 * $_POST['pergunta']['4.1-D']) +
+ (1.272 * $_POST['pergunta']['1.3-D']) +
+ (1.432 * $_POST['pergunta']['5.5-A']) +
+ (2.067 * $_POST['pergunta']['4.2-B']) +
+ (2.005 * $_POST['pergunta']['5.8-D']) +
+ (3.727 * $_POST['pergunta']['3.1-A']) +
+ (1.426 * $_POST['pergunta']['1.2-C']) +
+ (0.875 * $_POST['pergunta']['5.7-D']) +
+ (0.953 * $_POST['pergunta']['2.2-D']) +
+ (2.445 * $_POST['pergunta']['3.1-D']) +
+ (2.249 * $_POST['pergunta']['1.4-B']) +
+ (0.889 * $_POST['pergunta']['6.4-E']) +
+ (0.936 * $_POST['pergunta']['2.2-G']) +
+ (1.247 * $_POST['pergunta']['1.5-B']) +
+ (1.206 * $_POST['pergunta']['5.9-B']) +
+ (1.652 * $_POST['pergunta']['2.1-E']) +
+ (3.084 * $_POST['pergunta']['4.2-A']) +
+ (2.742 * $_POST['pergunta']['3.1-B'])+
+ (1.547 * $_POST['pergunta']['1.7-A']) +
+ (1.362 * $_POST['pergunta']['4.1-C']) +
+ (2.588 * $_POST['pergunta']['2.1-C']) +
+ (1.709 * $_POST['pergunta']['3.2-D']) +
+ (1.929 * $_POST['pergunta']['5.2-F']) +
+ (1.356 * $_POST['pergunta']['3.2-C']) +
+ (1.556 * $_POST['pergunta']['1.3-A']) +
+ (2.050 * $_POST['pergunta']['4.1-B']) +
+ (1.826 * $_POST['pergunta']['1.7-C']) +
+ (0.981 * $_POST['pergunta']['1.1-E']) +
+ (1.386 * $_POST['pergunta']['2.2-J']) +
+ (1.154 * $_POST['pergunta']['5.7-E']) +
+ (1.372 * $_POST['pergunta']['6.4-C']) +
+ (1.470 * $_POST['pergunta']['2.2-F']) +
+ (0.622 * $_POST['pergunta']['6.2-A']) +
+ (0.886 * $_POST['pergunta']['3.2-E']) +
+ (0.796 * $_POST['pergunta']['1.1-C']) +
+ (1.183 * $_POST['pergunta']['2.2-H']) +
+ (2.700 * $_POST['pergunta']['5.3-C']) +
+ (1.799 * $_POST['pergunta']['4.2-C']) +
+ (1.176 * $_POST['pergunta']['4.3-B1']) +
+ (1.119 * $_POST['pergunta']['2.2-B']) +
+ (1.610 * $_POST['pergunta']['3.1-C']) +
+ (1.412 * $_POST['pergunta']['4.1-F']) +
+ (0.775 * $_POST['pergunta']['2.1-H']) +
+ (0.606 * $_POST['pergunta']['5.4-C']) +
+ (1.004 * $_POST['pergunta']['1.1-D']) +
+ (1.210 * $_POST['pergunta']['1.5-E']) +
+ (0.673 * $_POST['pergunta']['3.2-G']) +
+ (0.986 * $_POST['pergunta']['3.2-A']) +
+ (1.242 * $_POST['pergunta']['1.3-B'])  +
+ (1.000 * $_POST['pergunta']['5.9-E']) +
+ (0.978 * $_POST['pergunta']['5.1-M']) +
+ (0.746 * $_POST['pergunta']['5.7-I']) +
+ (1.443 * $_POST['pergunta']['6.4-G']) +
+ (0.933 * $_POST['pergunta']['5.4-P']) +
+ (0.952 * $_POST['pergunta']['1.7-E']) +
+ (1.041 * $_POST['pergunta']['2.2-C']) +
+ (1.195 * $_POST['pergunta']['5.5-B']) +
+ (0.931 * $_POST['pergunta']['1.5-C']) +
+ (0.766 * $_POST['pergunta']['5.6-B']) +
+ (1.541 * $_POST['pergunta']['2.1-I'])
 );
 
 /*
-$sql= "insert into resposta (perguntas[]) values('$respostas[]')";
+$sql= "insert into resposta (perguntas[]) values('$_POST['pergunta'][]')";
 $salvar = mysql_query($sql,$conexao);
 
 $sql= "insert into origem (universidade, sigla, estado, municipio) values('$universidade','$sigla','$estado','$municipio')";
