@@ -3,10 +3,7 @@ include_once("config.php");
 ?>
 
 <pre>
-<?php 
-  var_dump($_POST); 
-  //echo "TESTE ===>" . $_POST['pergunta']['6.4-G'];
-?>
+<?php var_dump($_POST); ?>
 </pre>
 
 <?php
@@ -34,7 +31,7 @@ $igovti = (1.794 +
  (1.206 * $_POST['pergunta']['5.9-B']) +
  (1.652 * $_POST['pergunta']['2.1-E']) +
  (3.084 * $_POST['pergunta']['4.2-A']) +
- (2.742 * $_POST['pergunta']['3.1-B'])+
+ (2.742 * $_POST['pergunta']['3.1-B']) +
  (1.547 * $_POST['pergunta']['1.7-A']) +
  (1.362 * $_POST['pergunta']['4.1-C']) +
  (2.588 * $_POST['pergunta']['2.1-C']) +
@@ -65,7 +62,7 @@ $igovti = (1.794 +
  (1.210 * $_POST['pergunta']['1.5-E']) +
  (0.673 * $_POST['pergunta']['3.2-G']) +
  (0.986 * $_POST['pergunta']['3.2-A']) +
- (1.242 * $_POST['pergunta']['1.3-B'])  +
+ (1.242 * $_POST['pergunta']['1.3-B']) +
  (1.000 * $_POST['pergunta']['5.9-E']) +
  (0.978 * $_POST['pergunta']['5.1-M']) +
  (0.746 * $_POST['pergunta']['5.7-I']) +
@@ -79,13 +76,31 @@ $igovti = (1.794 +
  (1.541 * $_POST['pergunta']['2.1-I'])
 );
 
+// Laço para montar query insert.
+foreach ($_POST['pergunta'] as $p => $v) {
+  //printf ("%s => %s<br />", $p, $v);
+  $perguntas .= "'$p',";
+  $respostas .= "'$v',";
+}
+// Removendo último caractere indesejado.
+$perguntas = substr($perguntas, 0, -1);
+$respostas = substr($respostas, 0, -1);
+
+$query = "INSERT INTO resposta (".$perguntas.") VALUES (".$respostas.")";
+if(mysqli_query($connection, $query)){
+  echo "Cadastrado com sucesso!";
+} else {
+  echo mysqli_error($connection);
+}
+mysqli_free_result($result);
+
 /*
 $sql= "insert into resposta (perguntas[]) values('$_POST['pergunta'][]')";
 $salvar = mysql_query($sql,$conexao);
 
 $sql= "insert into origem (universidade, sigla, estado, municipio) values('$universidade','$sigla','$estado','$municipio')";
 $salvar = mysql_query($sql,$conexao);
- */
+*/
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

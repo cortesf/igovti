@@ -97,8 +97,8 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   mysqli_free_result($result);
 ?>
     </div>
-    <div id="content6">
-      <button type="submit" class="botao">Calcular índice de Governança de TI</button>
+    <div class="bottom">
+      <input class="button" type="submit" value="Calcular índice de Governança de TI">
     </div>
   </form>
 </body>

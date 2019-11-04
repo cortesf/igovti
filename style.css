@@ -1,25 +1,20 @@
 html, body {
   height: 100%;
 }
-
 body {
   font: 14px/1 'Open Sans', sans-serif;
   color: #555;
   background: #eee;
 }
-
-p{
-    font-size: 1.3em;
-    text-align: left;
-    
+p {
+  font-size: 1.3em;
+  text-align: left;
 }
-
 h1 {
   padding: 50px 0;
   font-weight: 400;
   text-align: center;
 }
-
 main {
   min-width: 320px;
   max-width: 800px;
@@ -27,23 +22,19 @@ main {
   margin: 0 auto;
   background: #fff;
 }
-
 div {
   display: none;
   padding: 20px 0 0;
   border-top: 1px solid #ddd;
 }
-
 input[name=tabs] {
   display: none;
 }
-
 label {
   display: block;
   margin: 5px 5px 5px 20px;
   cursor: pointer;
 }
-
 label.tabs {
   display: inline-block;
   margin: 0 0 -1px;
@@ -53,41 +44,52 @@ label.tabs {
   color: #bbb;
   border: 1px solid transparent;
 }
-
 label.tabs:before {
   font-family: fontawesome;
   font-weight: normal;
   margin-right: 10px;
 }
-
 label.tabs[for*='1']:before {
   content: '\f1cb';
 }
-
 label.tabs[for*='2']:before {
   content: '\f17d';
 }
-
 label.tabs[for*='3']:before {
   content: '\f16b';
 }
-
 label.tabs[for*='4']:before {
   content: '\f1a9';
 }
-
 label.tabs:hover {
   color: #888;
   cursor: pointer;
 }
-
+input.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+div.bottom {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+}
 input:checked + label.tabs {
   color: #555;
   border: 1px solid #ddd;
   border-top: 2px solid orange;
   border-bottom: 1px solid #fff;
 }
-
 #tab1:checked ~ #content1,
 #tab2:checked ~ #content2,
 #tab3:checked ~ #content3,
@@ -96,7 +98,6 @@ input:checked + label.tabs {
 #tab6:checked ~ #content6 {
   display: block;
 }
-
 @media screen and (max-width: 650px) {
   label.tabs {
     font-size: 0;
@@ -106,7 +107,6 @@ input:checked + label.tabs {
     font-size: 18px;
   }
 }
-
 @media screen and (max-width: 400px) {
   label.tabs {
     padding: 15px;
