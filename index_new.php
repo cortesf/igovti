@@ -85,7 +85,7 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   mysqli_free_result($result);
 
   foreach ($arr as $areas) {
-    $query = 'SELECT pergunta.id,pergunta.codigo,area.nome,pergunta FROM pergunta INNER JOIN area WHERE pergunta.id_area=area.id AND pergunta.id_area='.$areas['id'];
+    $query = 'SELECT pergunta.codigo,area.nome,pergunta FROM pergunta INNER JOIN area WHERE pergunta.id_area=area.id AND pergunta.id_area='.$areas['id'];
     $result = mysqli_query($connection, $query);
     $arr2 = mysqli_fetch_all($result, MYSQLI_ASSOC);
     echo '<div id="content'.$areas['id'].'">';
