@@ -73,6 +73,7 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   $query = "SELECT id,nome FROM area";
   $result = mysqli_query($connection, $query);
   $arr = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
   foreach ($arr as $areas) {
     //printf ("(%s) %s<br />", $areas['id'], $areas['nome']);
     if ($areas['id'] == 1)
@@ -82,6 +83,7 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<label for="tab'.$areas['id'].'" class="tabs">'.$areas['nome'].'</label>';
   }
   mysqli_free_result($result);
+
   foreach ($arr as $areas) {
     $query = 'SELECT pergunta.id,pergunta.codigo,area.nome,pergunta FROM pergunta INNER JOIN area WHERE pergunta.id_area=area.id AND pergunta.id_area='.$areas['id'];
     $result = mysqli_query($connection, $query);
@@ -105,11 +107,9 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
       </label>
 <?php  
     }
-?>
-    </div>
-<?php
+    echo "</div>";
+    mysqli_free_result($result);
   }
-  mysqli_free_result($result);
 ?>
     </div>
     <div class="bottom">

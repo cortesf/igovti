@@ -1,10 +1,10 @@
 
 CREATE TABLE `origem` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `universidade` CHAR NOT NULL,
-  `sigla` CHAR NOT NULL,
-  `estado` CHAR NOT NULL,
-  `municipio` CHAR NOT NULL, 
+  `universidade` CHAR(255) NOT NULL,
+  `sigla` CHAR(255) NOT NULL,
+  `estado` CHAR(255) NOT NULL,
+  `municipio` CHAR(255) NOT NULL, 
   PRIMARY KEY (id)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
