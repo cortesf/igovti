@@ -27,7 +27,7 @@ COMMIT;
 CREATE TABLE `resposta` (
   `resposta` FLOAT,
   `id_origem` INT,
-  `cod_pergunta` INT,
+  `cod_pergunta` VARCHAR(512),
    FOREIGN KEY (id_origem) REFERENCES origem(id),
    FOREIGN KEY (cod_pergunta) REFERENCES pergunta(codigo)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
