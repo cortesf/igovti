@@ -49,14 +49,30 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <body>
-  <h1 style="background-color: #fff; font-weight: bold;">IGovTI</h1>
-  <form action="proccess.php" method="POST" id="formulario" class="form"> 
+ <h1 style="background-color: #fff; font-weight: bold;">IGovTI</h1>
+ <form action="proccess.php" method="POST" id="formulario" class="form"> 
+   <label>
+   <h4>Insira o nome da Instituição onde trabalha</h4>
+   <input type="text" name=instituicao autofocus>  
+   </label> 
+   <label>
+   <h4>Insira a sigla da Instituição</h4>
+   <input type="text" name=sigla>
+   </label>   
+   <label>
+   <h4>Insira o Estado da sua Instituição</h4>  
+   <input type="text" name=estado>
+   </label> 
+   <label>
+   <h4>Insira a Cidade da sua Instituição</h4>  
+   <input type="text" name=municipio><br>
+   </label> 
+      
 <?php 
   include_once "config.php";
   $query = "SELECT id,nome FROM area";
   $result = mysqli_query($connection, $query);
   $arr = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
   foreach ($arr as $areas) {
     //printf ("(%s) %s<br />", $areas['id'], $areas['nome']);
     if ($areas['id'] == 1)
@@ -66,7 +82,6 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     echo '<label for="tab'.$areas['id'].'" class="tabs">'.$areas['nome'].'</label>';
   }
   mysqli_free_result($result);
-
   foreach ($arr as $areas) {
     $query = 'SELECT pergunta.id,pergunta.codigo,area.nome,pergunta FROM pergunta INNER JOIN area WHERE pergunta.id_area=area.id AND pergunta.id_area='.$areas['id'];
     $result = mysqli_query($connection, $query);
@@ -103,4 +118,3 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
   </form>
 </body>
 </html>
-
