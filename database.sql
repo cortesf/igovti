@@ -10,27 +10,26 @@ CREATE TABLE `origem` (
 COMMIT;
 CREATE TABLE `area` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `nome` LONGTEXT NOT NULL,
+  `nome` CHAR(255) NOT NULL,
   PRIMARY KEY (id)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
 
 CREATE TABLE `pergunta` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
-  `codigo` LONGTEXT NOT NULL,
-  `pergunta` LONGTEXT NOT NULL, 
+  `codigo` VARCHAR(512) NOT NULL,
+  `pergunta` VARCHAR(512) NOT NULL, 
   `id_area` INT,
    FOREIGN KEY (id_area) REFERENCES area(id), 
-   PRIMARY KEY (id)
+   PRIMARY KEY (codigo)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
 
 CREATE TABLE `resposta` (
   `resposta` FLOAT,
   `id_origem` INT,
-  `id_pergunta` INT,
+  `cod_pergunta` INT,
    FOREIGN KEY (id_origem) REFERENCES origem(id),
-   FOREIGN KEY (id_pergunta) REFERENCES pergunta(id)
+   FOREIGN KEY (cod_pergunta) REFERENCES pergunta(codigo)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 COMMIT;
 
