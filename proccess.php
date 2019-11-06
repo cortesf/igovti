@@ -1,12 +1,10 @@
 <?php
 include_once("config.php");
-?>
-
-<pre>
-<?php var_dump($_POST); ?>
-</pre>
-
-<?php
+/* // Para debug
+echo "<pre>";
+  var_dump($_POST);
+echo "</pre>";
+ */
 $igovti = (1.794 +
   (1.716 * $_POST['pergunta']['1.2-A']) +
   (2.515 * $_POST['pergunta']['4.1-D']) +
@@ -116,7 +114,7 @@ mysqli_free_result($result);
   </head>
   <body>
     <div>
-      <p>O valor do seu Índice de Governança Ajustado é : <?php echo $igovti ?>. Confira abaixo sua categoria correspondente</p>
+      <p>O valor do seu Índice de Governança Ajustado é: <?php echo $igovti ?>.</p>
     </div>
     <p>Nível de Governança de TI </p>
     <ol>
