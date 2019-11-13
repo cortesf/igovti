@@ -7,10 +7,14 @@
     /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
     @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
     @import url("http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   </style>
   <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
+    
 <?php
 $config = "./config.php";
 if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -46,10 +50,84 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php
 }
 ?>
+<script>
+var currentTab = 1; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
+
+function showTab(currentTab) {
+  // This function will display the specified tab of the form...
+  var x = document.getElementsByClassName("content");
+  x[currentTab].style.display = "block";
+  //... and fix the Previous/Next buttons:
+  if (currentTab == 0) {
+    document.getElementById("prevBtn")//.style.display = "none";
+  } else {
+    document.getElementById("prevBtn")//.style.display = "inline";
+  }
+  if (currentTab == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  //... and run a function that will display the correct step indicator:
+  fixStepIndicator(currentTab)
+}
+
+function nextPrev(currentTab) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("content");
+  // Exit the function if any field in the current tab is invalid:
+  if (currentTab == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  //x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab ++ ;
+  // if you have reached the end of the form...
+  if (currentTab >= x.length) {
+    // ... the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
+
+function validateForm() {
+  // This function deals with validation of the form fields
+  var x, y, i, valid = true;
+  x = document.getElementsByClassName("content");
+  y = x[currentTab].getElementsByTagName("input");
+  // A loop that checks every input field in the current tab:
+  for (i = 0; i < y.length; i++) {
+    // If a field is empty...
+    if (y[i].value == "") {
+      // add an "invalid" class to the field:
+      y[i].className += " invalid";
+      // and set the current valid status to false
+      valid = false;
+    }
+  }
+  // If the valid status is true, mark the step as finished and valid:
+  if (valid) {
+    document.getElementsByClassName("step")[currentTab].className += " finish";
+  }
+  return valid; // return the valid status
+}
+
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class on the current step:
+  x[currentTab].className += " active";
+}
+</script>    
 <body>
  <h1 style="background-color: #fff; font-weight: bold;">IGovTI</h1>
  <form action="proccess.php" method="POST" id="formulario" class="form"> 
-     
+   
      
      
      <select id="instituicao" name="instituicao">
@@ -170,8 +248,11 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <div class="bottom">
       <input class="button" type="submit" value="Calcular índice de Governança de TI">
+      <input type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+      <input type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
     </div>
-    
-  </form>
+        
+</form>
+
 </body>
 </html>
