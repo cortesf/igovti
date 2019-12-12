@@ -90,6 +90,7 @@ foreach ($_POST['pergunta'] as $p => $v) {
   mysqli_query($connection, $query);
 }
 // Liberando conexão.
+$result = mysqli_query($connection, $query);
 mysqli_free_result($result);
 ?>
 <!DOCTYPE html>
