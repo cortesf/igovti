@@ -51,7 +51,7 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 <body>
-  <h1 style="background-color: #fff; font-weight: bold;">IGovTI</h1>
+  <h1 style="background-color: #fff; font-weight: bold;">IGovTI Ajustado</h1>
   <form action="proccess.php" method="POST" id="formulario" class="form"> 
      
     <select id="instituicao" name="instituicao">
