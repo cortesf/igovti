@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>IGovTI</title>
+  <title>IGovTI Ajustado</title>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
   <style>
     /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
@@ -179,7 +179,7 @@ if (!file_exists($config) && $_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="bottom">
       <input type="button" id="prev" value="<<Anterior"></button>
       <input type="button" id="next" value="Próximo>>"></button>
-      <input class="button" type="submit" value="Calcular índice de Governança de TI">
+      <input class="button" type="submit" value="Calcular índice de Governança de TI Ajustado">
     </div>
         
   </form>
